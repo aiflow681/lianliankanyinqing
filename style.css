@@ -15,12 +15,12 @@ body, canvas, div {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* Remove spin of input type number */
+/* 去除数字输入框的增减按钮 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
+    /* 这里不要直接完全隐藏按钮，悬停时可能触发浏览器异常 */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0; /* 按钮隐藏后仍可能保留默认外边距，这里统一清零 */
 }
 
 body {

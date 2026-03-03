@@ -53,7 +53,7 @@
       }
     }
 
-    // Windows file URLs may vary only by drive-letter/path casing (e.g. d: vs D:).
+
     var pathnameLower = pathname.toLowerCase();
     var basePathnameLower = basePathname.toLowerCase();
     if (pathnameLower.indexOf(basePathnameLower) === 0) {
@@ -73,7 +73,7 @@
       return trimmed;
     }
 
-    // Last resort: match by pathname suffix so absolute file URLs still work.
+
     for (var key in resourceTable) {
       if (!hasOwn.call(resourceTable, key)) {
         continue;
@@ -166,7 +166,7 @@
         evt.target = evt.target || null;
         evt.currentTarget = evt.currentTarget || null;
       } catch (e2) {
-        // ignore readonly event fields
+        // 忽略只读事件字段的赋值异常
       }
       return evt;
     }
@@ -177,7 +177,7 @@
         evt.target = xhr;
         evt.currentTarget = xhr;
       } catch (e) {
-        // ignore readonly event fields
+        // 忽略只读事件字段的赋值异常
       }
 
       var handler = xhr['on' + type];
@@ -207,7 +207,7 @@
         try {
           return new TextDecoder('utf-8').decode(bytes);
         } catch (e) {
-          // fallback below
+          // 若失败则走下面的兼容分支
         }
       }
       var out = '';
