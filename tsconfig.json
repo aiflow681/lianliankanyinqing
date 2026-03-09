@@ -1,9 +1,0 @@
-{
-  /* 基础配置，请勿修改此项。 */
-  "extends": "./temp/tsconfig.cocos.json",
-
-  /* 在此添加你的自定义配置。 */
-  "compilerOptions": {
-    "strict": false
-  }
-}
