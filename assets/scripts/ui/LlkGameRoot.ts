@@ -310,7 +310,7 @@ export class LlkGameRoot extends Component {
     this.actionLabel.string = `提示 ${stats.hintsLeft}   洗牌 ${stats.shufflesLeft}`;
 
     const lowTime = stats.timeLeftSec <= 20;
-    this.timeLabel.color = lowTime ? new Color(255, 118, 118, 255) : new Color(255, 234, 188, 255);
+    this.timeLabel.color = lowTime ? new Color(140, 36, 36, 255) : new Color(45, 32, 28, 255);
   }
 
   private flashAction(text: string): void {
@@ -326,6 +326,11 @@ export class LlkGameRoot extends Component {
   }
 
   private showPopup(text: string): void {
+    this.popupLabel.fontSize = 56;
+    this.popupLabel.lineHeight = 66;
+    this.popupLabel.overflow = Label.Overflow.SHRINK;
+    this.popupLabel.enableWrapText = true;
+    this.popupLabel.node.getComponent(UITransform)?.setContentSize(372, 182);
     this.popupLabel.string = text;
     this.popupNode.active = true;
   }
@@ -427,8 +432,11 @@ export class LlkGameRoot extends Component {
     innerG.roundRect(-195, -95, 390, 190, 18);
     innerG.stroke();
 
-    this.popupLabel = this.makeText(this.popupNode, '', 24, new Color(78, 51, 44, 255), true);
-    this.popupLabel.lineHeight = 34;
+    this.popupLabel = this.makeText(this.popupNode, '', 56, new Color(78, 51, 44, 255), true);
+    this.popupLabel.lineHeight = 66;
+    this.popupLabel.overflow = Label.Overflow.SHRINK;
+    this.popupLabel.enableWrapText = true;
+    this.popupLabel.node.getComponent(UITransform)?.setContentSize(372, 182);
     this.popupNode.active = false;
     this.popupNode.on(Node.EventType.TOUCH_END, this.onRestartPressed, this);
   }
